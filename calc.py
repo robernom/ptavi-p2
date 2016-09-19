@@ -40,6 +40,6 @@ if __name__ == "__main__":
     elif sys.argv[2] == "multiplicacion":
         result = multiply(operando1, operando2)
     else:
-        sys.exit('Operación sólo puede ser sumar o restar.')
+        sys.exit('Operación sólo puede ser sumar, restar, multiplicar o dividir.')
 
     print(result)
