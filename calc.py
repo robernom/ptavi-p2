@@ -29,17 +29,21 @@ if __name__ == "__main__":
         operando1 = int(sys.argv[1])
         operando2 = int(sys.argv[3])
     except ValueError:
-        sys.exit("Error: Non numerical parameters")
+        try:
+            operando1 = float(sys.argv[1])  # In this way, float are covered
+            operando2 = float(sys.argv[3])
+        except ValueError:
+            sys.exit("Error: Non numerical parameters")
 
     if sys.argv[2] == "suma":
         result = plus(operando1, operando2)
     elif sys.argv[2] == "resta":
         result = minus(operando1, operando2)
-    elif sys.argv[2] == "division":
+    elif sys.argv[2] == "divide":
         result = divide(operando1, operando2)
-    elif sys.argv[2] == "multiplicacion":
+    elif sys.argv[2] == "multiplica":
         result = multiply(operando1, operando2)
     else:
-        sys.exit('Operación sólo puede ser sumar, restar, multiplicar o dividir.')
+        sys.exit('Commands are suma, resta, multiplica y divide')
 
     print(result)
