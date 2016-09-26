@@ -6,7 +6,7 @@ import calcoohija
 
 if __name__ == "__main__":
 
-    calcplus = calcoohija.CalculadoraHija()
+    calc3 = calcoohija.CalculadoraHija()
 
     try:
         fich = open(sys.argv[1], 'r')
@@ -20,32 +20,15 @@ if __name__ == "__main__":
         try:
             result = int(lista[1])
             for elemento in lista[2:]:
-                if lista[0] == "suma":
-                    result = calcplus.plus(result, int(elemento))
-                elif lista[0] == "resta":
-                    result = calcplus.minus(result, int(elemento))
-                elif lista[0] == "divide":
-                    result = calcplus.division(result, int(elemento))
-                elif lista[0] == "multiplica":
-                    result = calcplus.multiplication(result, int(elemento))
-                else:
-                    sys.exit('Commands are suma, resta, multiplica y divide')
+                result = calc3.Selector(lista[0],result,int(elemento))
         except ValueError:
+            """ If the parameters are not integers, it may be floats """
             try:
                 result = float(lista[1])
                 for elemento in lista[2:]:
-                    if lista[0] == "suma":
-                        result = calcplus.plus(result, float(elemento))
-                    elif lista[0] == "resta":
-                        result = calcplus.minus(result, float(elemento))
-                    elif lista[0] == "divide":
-                        result = calcplus.division(result, float(elemento))
-                    elif lista[0] == "multiplica":
-                        result = calcplus.multiplication(result, float(elemento))
-                    else:
-                        sys.exit('Commands are suma, resta, multiplica y divide')
+                    result = calc3.Selector(lista[0],result,float(elemento))
             except ValueError:
                 sys.exit('Error: Non numerical parameters')
-        print(result)     
+        print(result)
 
-
+        fich.close()
