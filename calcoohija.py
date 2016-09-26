@@ -15,6 +15,18 @@ class CalculadoraHija(calcoo.Calculadora):
     def multiplication(self,op1,op2):
         return op1 * op2
 
+    def Selector(self, operator, op1, op2):
+        if operator == "suma":
+            return self.plus(op1, op2)
+        elif operator == "resta":
+            return self.minus(op1, op2)
+        elif operator == "divide":
+            return self.division(op1, op2)
+        elif operator == "multiplica":
+            return self.multiplication(op1, op2)
+        else:
+            sys.exit('Commands are suma, resta, multiplica, divide') 
+
 if __name__ == "__main__":
 
     calc2 = CalculadoraHija()
@@ -29,15 +41,6 @@ if __name__ == "__main__":
         except ValueError:
             sys.exit("Error: Non numerical parameters")
 
-    if sys.argv[2] == "suma":
-        result = calc2.plus(operando1, operando2)
-    elif sys.argv[2] == "resta":
-        result = calc2.minus(operando1, operando2)
-    elif sys.argv[2] == "divide":
-        result = calc2.division(operando1, operando2)
-    elif sys.argv[2] == "multiplica":
-        result = calc2.multiplication(operando1, operando2)
-    else:
-        sys.exit('Commands are suma, resta, multiplica y divide')
+    result = calc2.Selector(sys.argv[2],operando1,operando2)
 
     print(result)
