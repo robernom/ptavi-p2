@@ -20,13 +20,13 @@ if __name__ == "__main__":
         try:
             result = int(lista[1])
             for elemento in lista[2:]:
-                result = calc3.Selector(lista[0],result,int(elemento))
+                result = calc3.Selector(lista[0], result, int(elemento))
         except ValueError:
             """ If the parameters are not integers, it may be floats """
             try:
                 result = float(lista[1])
                 for elemento in lista[2:]:
-                    result = calc3.Selector(lista[0],result,float(elemento))
+                    result = calc3.Selector(lista[0], result, float(elemento))
             except ValueError:
                 sys.exit('Error: Non numerical parameters')
         print(result)
