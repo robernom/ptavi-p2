@@ -13,16 +13,28 @@ def minus(op1, op2):
     """ Function to substract the operands """
     return op1 - op2
 
-def divide(op1, op2):
+def division(op1, op2):
     """ Function to divide the operands """
     try:
         return op1 / op2
     except ZeroDivisionError:
         sys.exit("Error: Division by zero is not allowed")
         
-def multiply(op1, op2):
+def multiplication(op1, op2):
     """ Function to multiply the operands """
-    return op1 * op2        
+    return op1 * op2      
+
+def Selector(operator, op1, op2):
+    if operator == "suma":
+        return plus(op1, op2)
+    elif operator == "resta":
+        return minus(op1, op2)
+    elif operator == "divide":
+        return division(op1, op2)
+    elif operator == "multiplica":
+        return multiplication(op1, op2)
+    else:
+        sys.exit('Commands are suma, resta, multiplica, divide') 
 
 if __name__ == "__main__":
     try:
@@ -35,15 +47,7 @@ if __name__ == "__main__":
         except ValueError:
             sys.exit("Error: Non numerical parameters")
 
-    if sys.argv[2] == "suma":
-        result = plus(operando1, operando2)
-    elif sys.argv[2] == "resta":
-        result = minus(operando1, operando2)
-    elif sys.argv[2] == "divide":
-        result = divide(operando1, operando2)
-    elif sys.argv[2] == "multiplica":
-        result = multiply(operando1, operando2)
-    else:
-        sys.exit('Commands are suma, resta, multiplica y divide')
+
+    result = Selector(sys.argv[2],operando1,operando2)
 
     print(result)
