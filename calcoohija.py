@@ -4,15 +4,16 @@
 import sys
 import calcoo
 
+
 class CalculadoraHija(calcoo.Calculadora):
 
-    def division(self,op1,op2):
+    def division(self, op1, op2):
         try:
             return op1 / op2
         except ZeroDivisionError:
             sys.exit("Error: Division by zero is not allowed")
 
-    def multiplication(self,op1,op2):
+    def multiplication(self, op1, op2):
         return op1 * op2
 
     def Selector(self, operator, op1, op2):
@@ -25,7 +26,7 @@ class CalculadoraHija(calcoo.Calculadora):
         elif operator == "multiplica":
             return self.multiplication(op1, op2)
         else:
-            sys.exit('Commands are suma, resta, multiplica, divide') 
+            sys.exit('Commands are suma, resta, multiplica, divide')
 
 if __name__ == "__main__":
 
@@ -41,6 +42,6 @@ if __name__ == "__main__":
         except ValueError:
             sys.exit("Error: Non numerical parameters")
 
-    result = calc2.Selector(sys.argv[2],operando1,operando2)
+    result = calc2.Selector(sys.argv[2], operando1, operando2)
 
     print(result)
