@@ -7,7 +7,7 @@ import calcoohija
 
 calc4 = calcoohija.CalculadoraHija()
 
-with open(sys.argv[1],'r') as fich: # Cuando acaba el with, se cierra fich
+with open(sys.argv[1], 'r') as fich:    # Cuando acaba el with, se cierra fich
     lineas = csv.reader(fich)
     for lista in lineas:
         try:
