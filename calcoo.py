@@ -3,6 +3,7 @@
 
 import sys
 
+
 class Calculadora():
 
     def plus(self, op1, op2):
@@ -12,7 +13,7 @@ class Calculadora():
         return op1 - op2
 
 if __name__ == "__main__":
-    
+
     calc = Calculadora()
 
     try:
@@ -26,7 +27,7 @@ if __name__ == "__main__":
             sys.exit("Error: Non numerical parameters")
 
     if sys.argv[2] == "suma":
-        result = calc.plus(operando1,operando2)
+        result = calc.plus(operando1, operando2)
     elif sys.argv[2] == "resta":
         result = calc.minus(operando1, operando2)
     else:
